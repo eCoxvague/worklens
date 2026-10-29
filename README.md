@@ -35,6 +35,14 @@ npm run check
 
 Existing testnet data can be reset. The live integration will need to track supported endpoint formats and chain resets.
 
+## Usage measurement
+
+[Public dashboard](https://worklens-ecoxvague.goatcounter.com/) · [Methodology and privacy](https://ecoxvague.github.io/worklens/measurement.html)
+
+GoatCounter measures session-based visits, `demo-used` (a user changes a bit or downloads a report), and `report-downloaded`. These are activity estimates, not an identity-based count of unique monthly users. Tracking starts with this integration; no historic usage is fabricated or backfilled. Visits and events are separate metrics and must not be added as users.
+
+Local previews, automated browser tests, and the methodology page are excluded. The integration honors DNT, GPC, and the provider's `skipgc` opt-out. Use `?analytics=off` on the demo to persist an opt-out; `?analytics=on` reverses it. Only that functional preference is stored locally. Query strings and referrers are stripped from the analytics payload. Browser, size, location, referrer, and individual-pageview collection are disabled in the provider settings; aggregate retention is 90 days. No wallet, solution, or report data is sent.
+
 ## Deployment
 
 Only `site/` is public web content. GitHub Pages serves its contents from the `gh-pages` branch. No server, private key, or secret is used by the website.

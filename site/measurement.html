@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fc">
+  <meta name="description" content="Public WorkLens usage analytics, measurement definitions, and privacy choices.">
+  <title>Metrics &amp; privacy — WorkLens</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap"><a class="wordmark" href="./">WorkLens</a><nav aria-label="Main navigation"><a href="./">Back to the demo</a></nav></header>
+  <main id="main" class="measurement wrap">
+    <h1>Metrics &amp; privacy.</h1>
+    <p class="intro">Public, session-based usage analytics. No accounts or wallets are required to inspect the numbers.</p>
+    <a class="button primary" href="https://worklens-ecoxvague.goatcounter.com/">Open public dashboard</a>
+    <section aria-labelledby="measured"><h2 id="measured">What the numbers mean</h2>
+      <dl><dt>Visits</dt><dd>Estimated visits to the WorkLens demo, using GoatCounter’s session deduplication of up to eight hours.</dd>
+      <dt>Demo used</dt><dd>A visitor changes a solution bit or downloads a report. Initial page loading and resetting the example do not trigger this event.</dd>
+      <dt>Report downloaded</dt><dd>A visitor requests the example’s JSON report.</dd></dl>
+      <p>Events are deduplicated within a page and by GoatCounter’s session logic. These figures estimate activity; they do not identify people or establish unique monthly active users. Event totals must not be added to visits as if they were additional users.</p>
+    </section>
+    <section aria-labelledby="scope"><h2 id="scope">Measurement scope</h2><p>Tracking begins with this integration. Earlier visits are not backfilled. Local previews, automated browser checks, and this explanation page are excluded. The dashboard does not distinguish an ordinary owner visit from another visitor; the owner should use the opt-out below. Blockers and privacy preferences can reduce the measured totals.</p></section>
+    <section aria-labelledby="privacy"><h2 id="privacy">Data and your choices</h2><p>WorkLens sends a fixed page name and the two named demo events to GoatCounter. It removes query strings and referrers from the analytics payload. Account details, wallets, solution vectors, and downloaded report contents are not sent. Browser, screen, location, referrer, and individual-pageview collection are disabled in our dashboard settings.</p><p>GoatCounter uses request information transiently to estimate sessions. It does not require visitor cookies or a persistent visitor ID. Our integration honors Do Not Track and Global Privacy Control. An opt-out stores only a functional preference in your browser.</p><p><a class="text-link" href="./?analytics=off">Disable analytics in this browser</a><br><a class="text-link" href="./?analytics=on">Enable analytics again</a></p><p>See <a href="https://www.goatcounter.com/help/sessions">GoatCounter’s session methodology</a> and <a href="https://www.goatcounter.com/help/privacy">privacy policy</a> for details. Aggregated data is retained for 90 days.</p></section>
+  </main>
+  <footer class="site-footer wrap"><p>WorkLens <span>Independent tooling for QMS.</span></p><div><a href="./">Demo</a><a href="https://github.com/eCoxvague/worklens">Source</a></div></footer>
+</body>
+</html>

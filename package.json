@@ -6,8 +6,8 @@
   "description": "An independent QMS useful-work inspection project with an interactive QUBO demonstration.",
   "scripts": {
     "start": "node scripts/serve.mjs",
-    "test": "node --test test/qubo.test.mjs",
-    "check": "node --check site/app.mjs"
+    "test": "node --test test/qubo.test.mjs test/analytics.test.mjs",
+    "check": "node --check site/app.mjs && node --check site/analytics.mjs"
   },
   "engines": { "node": ">=22" },
   "license": "MIT"

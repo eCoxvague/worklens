@@ -21,6 +21,8 @@ A clean research notebook for computation: generous warm-white space, dark ink, 
 
 Minimal navigation; two-column introduction with a computational example; three concise workflow rows; an honest implementation note; compact footer with source and QMS documentation. No testimonials, pricing, mailing list, decorative counters, scroll effects, or wallet requests.
 
+The footer also links to a narrow, readable metrics-and-privacy page. It inherits the same tokens, explains session-based measurement, links to the external public dashboard, and provides opt-out choices. The footer wraps on narrow screens. No fabricated metric cards are rendered.
+
 ## Interaction
 
 Changing a binary variable updates the highlighted matrix cells, score, and score-match status immediately. A reset restores the recorded example. Export saves the input, calculation convention, and verification limits in JSON. No animation is necessary; honor reduced motion.

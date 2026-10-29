@@ -18,6 +18,8 @@ QMS developers, researchers, community members, and reviewers evaluating the pro
 
 Show the product mechanism with a small, explicitly synthetic example. Recalculate xᵀQx in the browser, let visitors change the binary solution, and export a reproducible JSON report. Distinguish score consistency from global optimality and consensus validation. No wallet connection, transactions, private keys, fabricated users, endorsements, or funding claims.
 
+The user authorized usage analytics. A public GoatCounter dashboard shows estimated visits and meaningful demo events from integration onward. These are session-based activity metrics, not verified unique monthly people. The measurement page explains definitions, exclusions, and privacy choices. Do not count automated QA as traction.
+
 ## Brand Commitments
 
 WorkLens is separate from the testnet runner. The user requested a minimal public website on GitHub, using Impeccable design guidance and considering other GitHub design references. Use English for the public Builder Program audience.

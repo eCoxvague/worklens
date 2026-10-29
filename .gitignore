@@ -1,5 +1,6 @@
 node_modules/
 .cache/
+.secrets/
 .impeccable/*
 !.impeccable/design.json
 test-results/

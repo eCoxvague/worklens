@@ -1,4 +1,7 @@
 import { example, objective, makeReport } from './qubo.mjs';
+import { setupAnalytics } from './analytics.mjs';
+
+const analytics = setupAnalytics(window);
 
 const inputs = [...document.querySelectorAll('.bit input')];
 const score = document.querySelector('#score');
@@ -28,12 +31,15 @@ function render() {
 document.querySelector('#solution-fieldset').disabled = false;
 reset.disabled = false;
 download.disabled = false;
-inputs.forEach(input => input.addEventListener('change', render));
+inputs.forEach(input => input.addEventListener('change', event => {
+  render();
+  if (event.isTrusted) analytics.track('demo-used');
+}));
 reset.addEventListener('click', () => {
   inputs.forEach((input, index) => { input.checked = Boolean(example.solution[index]); });
   render();
 });
-download.addEventListener('click', () => {
+download.addEventListener('click', event => {
   const blob = new Blob([JSON.stringify(makeReport(solution()), null, 2) + '\n'], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');
@@ -42,6 +48,10 @@ download.addEventListener('click', () => {
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
+  if (event.isTrusted) {
+    analytics.track('demo-used');
+    analytics.track('report-downloaded');
+  }
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 render();
