@@ -1,0 +1,14 @@
+{
+  "name": "worklens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An independent QMS useful-work inspection project with an interactive QUBO demonstration.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test test/qubo.test.mjs",
+    "check": "node --check site/app.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "license": "MIT"
+}

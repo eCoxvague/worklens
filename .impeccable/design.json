@@ -1,0 +1,20 @@
+{
+  "project": "WorkLens",
+  "surface": "/",
+  "mode": "persuade",
+  "direction": "A computation notebook with a working synthetic score check",
+  "tokens": {
+    "background": "#f8f9fc",
+    "surface": "#ffffff",
+    "ink": "#14213d",
+    "secondary": "#526078",
+    "accent": "#254be9",
+    "accentSoft": "#edf1ff",
+    "line": "#d6ddea",
+    "success": "#186546",
+    "changed": "#87520a",
+    "font": "Manrope",
+    "spacing": [4, 8, 12, 16, 24, 32, 48, 64, 96],
+    "contentMaxWidth": 1160
+  }
+}

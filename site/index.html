@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fc">
+  <meta name="description" content="WorkLens makes QMS useful-work computation inspectable. Explore an interactive QUBO example and independently recalculate its solution score.">
+  <meta property="og:title" content="WorkLens — See the work. Check the result.">
+  <meta property="og:description" content="An independent, open-source project for inspecting QMS optimization problems and checking reported solution scores.">
+  <meta property="og:type" content="website">
+  <title>WorkLens — See the work. Check the result.</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="./" aria-label="WorkLens home"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="2"/><path d="m21 21 8 8M10 9v10m8-10v10M9 12h10m-10 4h10" stroke="currentColor" stroke-width="2"/></svg>WorkLens</a>
+    <nav aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="https://github.com/eCoxvague/worklens" class="source-link">GitHub <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" stroke-width="1.5"/></svg></a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">See the work.<br><span>Check the result.</span></h1>
+        <p class="intro">A closer look at the computation behind QMS. Explore optimization problems and independently check the scores their solutions produce.</p>
+        <a class="button primary" href="#example">Try the example <svg viewBox="0 0 20 20" width="20" height="20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+        <p class="project-status"><span class="status-dot" aria-hidden="true"></span>Early prototype. Live block integration is next.</p>
+      </div>
+
+      <section class="example" id="example" aria-labelledby="example-title">
+        <div class="example-heading"><h2 id="example-title">Inside a calculation</h2><span class="sample-label">Synthetic example</span></div>
+        <p class="example-intro">Change a bit. See which terms contribute to the score.</p>
+        <div class="matrix-frame">
+          <table class="matrix" aria-label="Symmetric QUBO matrix Q; highlighted cells contribute to the current score">
+            <thead><tr><td></td><th scope="col">x₁</th><th scope="col">x₂</th><th scope="col">x₃</th><th scope="col">x₄</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">x₁</th><td data-row="0" data-col="0">−6</td><td data-row="0" data-col="1">2</td><td data-row="0" data-col="2">0</td><td data-row="0" data-col="3">1</td></tr>
+              <tr><th scope="row">x₂</th><td data-row="1" data-col="0">2</td><td data-row="1" data-col="1">−4</td><td data-row="1" data-col="2">1</td><td data-row="1" data-col="3">0</td></tr>
+              <tr><th scope="row">x₃</th><td data-row="2" data-col="0">0</td><td data-row="2" data-col="1">1</td><td data-row="2" data-col="2">−5</td><td data-row="2" data-col="3">2</td></tr>
+              <tr><th scope="row">x₄</th><td data-row="3" data-col="0">1</td><td data-row="3" data-col="1">0</td><td data-row="3" data-col="2">2</td><td data-row="3" data-col="3">−3</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <form id="solution-form">
+          <fieldset disabled id="solution-fieldset"><legend>Solution vector <span>x</span></legend>
+            <div class="bits">
+              <label class="bit"><span>x₁</span><input type="checkbox" name="bit-1" checked aria-label="x1: include variable 1"><span class="bit-value" aria-hidden="true">1</span></label>
+              <label class="bit"><span>x₂</span><input type="checkbox" name="bit-2" aria-label="x2: include variable 2"><span class="bit-value" aria-hidden="true">0</span></label>
+              <label class="bit"><span>x₃</span><input type="checkbox" name="bit-3" checked aria-label="x3: include variable 3"><span class="bit-value" aria-hidden="true">1</span></label>
+              <label class="bit"><span>x₄</span><input type="checkbox" name="bit-4" aria-label="x4: include variable 4"><span class="bit-value" aria-hidden="true">0</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="score-row"><span>Recalculated score <span class="formula">xᵀQx</span></span><output id="score" for="solution-form">−11</output></div>
+        <p class="verification" id="verification" role="status" aria-live="polite">Example score: −11. Enable JavaScript to change the solution.</p>
+        <div class="example-actions"><button id="reset" type="button" disabled>Reset example</button><button id="download" type="button" disabled>Download report <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M10 3v10m-4-4 4 4 4-4M4 14v3h12v-3" stroke="currentColor" stroke-width="1.5"/></svg></button></div>
+        <p class="example-note">Illustrative data, not a live QMS block. A matching score does not prove an optimal solution.</p>
+        <noscript><p class="noscript-note">JavaScript is required for the interactive calculation and report download. The example matrix and starting score remain visible.</p></noscript>
+      </section>
+    </section>
+
+    <section class="workflow wrap" id="how-it-works" aria-labelledby="workflow-title">
+      <div class="section-intro"><h2 id="workflow-title">From a block<br> to a checkable result.</h2><p>The path we’re building for developers, researchers, and anyone curious about useful work.</p></div>
+      <div class="workflow-steps">
+        <article><h3>Inspect the problem</h3><p>Look up a QMS block and explore its available optimization data, variables, and recorded solution.</p></article>
+        <article><h3>Recalculate the score</h3><p>Evaluate the solution against the problem data. See whether the calculated objective matches the reported value.</p></article>
+        <article><h3>Make it reproducible</h3><p>Download the inputs and verification report to check the result yourself or compare your own solver.</p></article>
+      </div>
+    </section>
+
+    <section class="project wrap" aria-labelledby="project-title">
+      <div><h2 id="project-title">Small scope.<br> Verifiable progress.</h2></div>
+      <div class="project-copy"><p>This first release demonstrates score checking with a small QUBO problem. Next: read-only QMS block lookup, real problem data, and reproducible verification reports.</p><p>WorkLens is an independent community project. Current testnet problems are network-generated. The project checks score consistency; it does not certify global optimality or validate consensus.</p><a class="text-link" href="https://github.com/eCoxvague/worklens">Follow development on GitHub <span aria-hidden="true">→</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap"><p>WorkLens <span>Independent tooling for QMS.</span></p><div><a href="https://docs.qms.finance/">QMS docs</a><a href="https://github.com/eCoxvague/worklens">Source</a></div></footer>
+</body>
+</html>
